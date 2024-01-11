@@ -11,6 +11,21 @@ class Endereco
 
   public function __construct(string $rua, string $bairro, string $numero, string $cidade)
   {
+    $this->rua = $rua;
+    $this->bairro = $bairro;
+    $this->numero = $numero;
+    $this->cidade = $cidade;
+  }
+
+  public function __toString(): string
+  {
+    return "{$this->rua}, {$this->numero} - {$this->bairro}, {$this->cidade}";
+  }
+
+  public function __get(string $nomeAtributo)
+  {
+    $metodo = "get" . ucfirst($nomeAtributo);
+    return $this->$metodo();
   }
 
   public function getRua(): string
