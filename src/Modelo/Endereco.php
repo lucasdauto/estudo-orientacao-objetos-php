@@ -2,6 +2,13 @@
 
 namespace Alura\Banco\Modelo;
 
+/**
+ * Classe Endereco
+ * @package Alura\Banco\Modelo
+ * @author Lucas Dauto
+ * 
+ */
+
 class Endereco
 {
   private string $rua;
@@ -26,6 +33,12 @@ class Endereco
   {
     $metodo = "get" . ucfirst($nomeAtributo);
     return $this->$metodo();
+  }
+
+  public function __set(string $nomeAtributo, $valor):void
+  {
+    $metodo = "set" . ucfirst($nomeAtributo);
+    $this->$metodo($valor);
   }
 
   public function getRua(): string
