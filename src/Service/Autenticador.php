@@ -1,12 +1,14 @@
 <?php
 
-use Alura\Banco\Modelo\Funcionario\Diretor;
+namespace Alura\Banco\Service;
+
+use Alura\Banco\Modelo\Autenticavel;
 
 class Autenticador
 {
-  public function tentaLogin(string $senha, Diretor $diretor)
+  public function tentaLogin(string $senha, Autenticavel $autenticavel): void
   {
-    if ($diretor->podeAutenticar($senha)) {
+    if ($autenticavel->podeAutenticar($senha)) {
       echo "Login realizado com sucesso";
     } else {
       echo "Login falhou";
